@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Patrones de Violín — Rutina Progresiva (Musicala)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <h1 class="title">Patrones de Violín — Rutina Progresiva</h1>
+          <p class="sub">Hecho por Musicala</p>
+        </div>
+      </div>
+      <nav class="string-legend" aria-label="Leyenda de cuerdas">
+        <span class="badge">4=Sol</span>
+        <span class="badge">3=Re</span>
+        <span class="badge">2=La</span>
+        <span class="badge">1=Mi</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <!-- Columna izquierda: explicación + práctica -->
+    <section class="panel">
+      <article class="hero">
+        <h2>¿Para qué es esta rutina?</h2>
+        <p>
+          Estos <strong>patrones 0-1-2-3</strong> te ayudan a ganar <strong>velocidad</strong>,
+          <strong>coordinación</strong> de la mano izquierda y <strong>limpieza</strong> en los cambios.
+          Se practican como micro-frases de 4 pasos por cuerda, buscando sonido claro y relajado.
+        </p>
+
+        <h3>Cómo estudiarlo</h3>
+        <ul>
+          <li>El metrónomo empieza siempre en <strong>60</strong> (velocidad del pulso: cuántos golpes suenan en un minuto).</li>
+          <li>Cada vez que completes <strong>4 repeticiones</strong> del patrón, sube automáticamente <strong>+2</strong> y cambia de cuerda en orden <strong>4→3→2→1</strong>.</li>
+          <li>Si algo se traba: baja la velocidad y vuelve a conseguir 4 repeticiones limpias.</li>
+        </ul>
+
+        <h3>Modos de práctica</h3>
+        <ul>
+          <li><strong>Repetir el mismo día:</strong> al completar 4 repeticiones, sigues con el mismo patrón.</li>
+          <li><strong>Pasar al siguiente día:</strong> al completar 4 repeticiones, avanza automáticamente al siguiente patrón.</li>
+        </ul>
+
+        <p class="note">
+          <strong>Aplicación musical:</strong> útil en pasajes rápidos, secuencias tipo escala y figuraciones que piden cambios precisos de dedo.
+        </p>
+      </article>
+
+      <section class="practice">
+        <h2>Práctica guiada</h2>
+
+        <div class="controls">
+          <div class="card third">
+            <label for="daySelect">Día (patrón)</label>
+            <select id="daySelect" name="daySelect"></select>
+          </div>
+
+          <div class="card third">
+            <label for="modeSelect">Modo al completar 4 repeticiones</label>
+            <select id="modeSelect" name="modeSelect">
+              <option value="repeat">Repetir el mismo día</option>
+              <option value="next">Pasar al siguiente día</option>
+            </select>
+          </div>
+
+          <div class="card third">
+            <label for="tempoInput">Velocidad actual</label>
+            <div class="row">
+              <input id="tempoInput" name="tempoInput" type="number" min="40" max="200" step="1" value="60" />
+              <button id="resetTempo" class="btn muted" type="button">Reiniciar a 60</button>
+            </div>
+            <p class="note">Sube +2 automáticamente cada 4 repeticiones.</p>
+          </div>
+
+          <div class="card full">
+            <div class="row between">
+              <div class="row">
+                <button id="startBtn" class="btn primary" type="button">Iniciar</button>
+                <button id="stopBtn" class="btn dark" type="button">Detener</button>
+              </div>
+              <div class="row status">
+                <span class="tag">Repetición: <strong><span id="repNow">0</span>/4</strong></span>
+                <span class="tag">Cuerda: <strong><span id="stringNow">4</span></strong> <span class="note">(4=Sol, 3=Re, 2=La, 1=Mi)</span></span>
+              </div>
+            </div>
+
+            <div id="patternBox" class="pattern-box" aria-live="polite" aria-label="Pasos del patrón"></div>
+
+            <div class="kpi">
+              <div class="pill">Día: <strong><span id="kDay">1</span></strong></div>
+              <div class="pill">Patrón: <strong><span id="kPattern">0123</span></strong></div>
+              <div class="pill">Velocidad: <strong><span id="kTempo">60</span></strong></div>
+              <div class="pill">Reps hoy: <strong><span id="kTotalReps">0</span></strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Columna derecha: progreso + historial -->
+    <aside class="panel">
+      <h3>Progreso (30 días)</h3>
+      <div id="progressGrid" class="progress-grid" role="grid" aria-label="Progreso por día"></div>
+
+      <div class="row actions">
+        <button id="resetProgress" class="btn muted" type="button">Reiniciar progreso</button>
+      </div>
+
+      <section class="history">
+        <h3>Historial del día seleccionado</h3>
+        <div id="historyList" class="list" aria-live="polite"></div>
+        <p class="note">Todo se guarda en tu navegador (no necesitas cuenta).</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="wrap site-footer">
+    <p>Musicala — práctica clara, progresiva y medible.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

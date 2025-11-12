@@ -1,0 +1,339 @@
+:root {
+  --azul-mozart: #0C41C4;
+  --violeta-beethoven: #680DBF;
+  --magenta-brahms: #CE0071;
+  --gris-haydn: #E6E8E8;
+  --blanco-debussy: #F9F9F9;
+  --texto: #222;
+  --borde: #e1e1e1;
+  --sombra: 0 3px 8px #0001;
+  --trans: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Roboto", system-ui, sans-serif;
+  background: var(--blanco-debussy);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+/* ===== Header ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--gris-haydn);
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--azul-mozart), var(--violeta-beethoven), var(--magenta-brahms));
+  box-shadow: var(--sombra);
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sub {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.string-legend {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid var(--gris-haydn);
+  border-radius: 999px;
+  background: #fff;
+}
+
+/* ===== Layout general ===== */
+.layout {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--sombra);
+}
+
+/* ===== Sección hero ===== */
+.hero {
+  background: linear-gradient(180deg, #fff 0%, #fbfbff 100%);
+  border: 1px solid var(--gris-haydn);
+  border-radius: 16px;
+  padding: 16px 20px;
+}
+
+.hero h2 {
+  margin-top: 0;
+  color: var(--violeta-beethoven);
+}
+
+.note {
+  font-size: 13px;
+  color: #555;
+}
+
+/* ===== Controles ===== */
+.controls {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+@media (min-width: 720px) {
+  .controls {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid var(--gris-haydn);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #fff;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.third {
+  grid-column: span 4;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--gris-haydn);
+  border-radius: 8px;
+  font-size: 14px;
+  transition: var(--trans);
+}
+
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--violeta-beethoven);
+}
+
+/* ===== Botones ===== */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--trans);
+}
+
+.btn.primary {
+  background: var(--azul-mozart);
+  color: #fff;
+}
+
+.btn.dark {
+  background: #222;
+  color: #fff;
+}
+
+.btn.muted {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* ===== Fila flexible ===== */
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.row.between {
+  justify-content: space-between;
+}
+
+.tag {
+  font-size: 13px;
+  border: 1px solid var(--gris-haydn);
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: #fff;
+}
+
+/* ===== Patrón visual ===== */
+.pattern-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.step {
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 20px 10px;
+  text-align: center;
+  background: #fff;
+  transition: var(--trans);
+}
+
+.step.active {
+  background: var(--gris-haydn);
+  border-color: #bbb;
+  transform: scale(1.05);
+}
+
+/* ===== Métricas (KPI) ===== */
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pill {
+  background: #fafafa;
+  border: 1px solid var(--gris-haydn);
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ===== Progreso ===== */
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.daybtn {
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--gris-haydn);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--trans);
+}
+
+.daybtn.active {
+  border-color: var(--violeta-beethoven);
+}
+
+.daybtn.done {
+  background: #e9fbe9;
+  border-color: #b9e5b9;
+}
+
+.daybtn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Historial ===== */
+.list {
+  border-top: 1px dashed var(--gris-haydn);
+  margin-top: 10px;
+  padding-top: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.item {
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.actions {
+  margin-top: 8px;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  color: #666;
+  font-size: 12px;
+  margin-top: 20px;
+  border-top: 1px solid var(--gris-haydn);
+  padding-top: 12px;
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+/* --- Marcar días hechos con X --- */
+.daybtn.done {
+  color: #8a2be2; /* violeta legible */
+  font-weight: 700;
+}
+
+/* Si prefieres una X más grande visualmente */
+.daybtn.done {
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+}
